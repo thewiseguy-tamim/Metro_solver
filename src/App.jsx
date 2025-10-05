@@ -6,11 +6,10 @@ import { Navbar, NavbarMobile } from "./components/common/Navbar";
 import { Footer, FooterMobile } from "./components/common/Footer";
 
 // Pages
-
+import Home from "./pages/Home/Home";
+import AboutUs from "./pages/AboutUs/AboutUs"; // <-- already imported
 
 import { BREAKPOINTS } from "./utils/constants";
-import Home from "./pages/Home/Home";
-import AboutUs from "./pages/AboutUs/AboutUs";
 
 // Detect mobile by breakpoint
 function useIsMobile(breakpoint = BREAKPOINTS.DESKTOP_MIN) {
@@ -71,7 +70,7 @@ export default function App() {
         <main id="main-content" className="pt-[72px]">
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/About" element={<AboutUs />} />
+            <Route path="/about-us" element={<AboutUs />} /> {/* Added AboutUs route */}
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </main>

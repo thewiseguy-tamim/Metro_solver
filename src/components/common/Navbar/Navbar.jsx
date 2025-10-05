@@ -15,7 +15,8 @@ import {
 } from 'lucide-react';
 
 // Adjust the path to Frame.gif if needed for your structure
-import userGif from '../../../Materiel/Frame.gif';
+import logoGif from '../../../Materiel/Frame.gif';
+import userGif from '../../../Materiel/demo.jpg';
 
 const servicesItems = [
   { label: 'Digital Marketing', href: '#digital-marketing' },
@@ -41,7 +42,7 @@ const TopBanner = () => {
   const text =
     'Budget Friendly • No. 1 in Europe • On your first order 30% OFF • For all products buy now get the offer • User Friendly • 24/7 Service • ';
   return (
-    <div className="h-8 w-full bg-yellow-400 text-black overflow-hidden border-b border-yellow-300/40 relative">
+    <div className="h-8 w-full bg-yellow-400 text-black overflow-hidden border-b border-yellow-300/40 relative z-[150]">
       <style
         dangerouslySetInnerHTML={{
           __html: `@keyframes msMarquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }`,
@@ -59,9 +60,9 @@ const TopBanner = () => {
 
 const BrandMark = () => (
   <div className="flex items-center gap-3">
-    {/* Use Frame.gif as the brand icon, clipped to the hex shape */}
+    {/* Frame.gif as the brand icon (hex clipped) */}
     <img
-      src={userGif}
+      src={logoGif}
       alt="Brand"
       className="w-9 h-9 object-cover shadow-[0_8px_24px_rgba(103,76,255,0.45)]"
       style={{
@@ -117,7 +118,8 @@ function DesktopNav() {
   }, []);
 
   return (
-    <div className="hidden lg:block bg-[#0a0a1f]/80 supports-[backdrop-filter]:backdrop-blur border-b border-white/10">
+    // sticky + high z-index + isolate to ensure dropdown sits above hero/content
+    <div className="hidden lg:block sticky top-0 z-[200] isolate bg-[#0a0a1f]/80 supports-[backdrop-filter]:backdrop-blur border-b border-white/10">
       <div className="max-w-7xl mx-auto px-4">
         <div className="h-20 flex items-center justify-between gap-6">
           <a href="/" className="shrink-0">
@@ -157,7 +159,7 @@ function DesktopNav() {
                       </button>
                       {servicesOpen && (
                         <div
-                          className="absolute top-[calc(100%+10px)] left-1/2 -translate-x-1/2 w-72 bg-[#0a0a1f] border border-white/10 rounded-xl shadow-xl overflow-hidden z-[60]"
+                          className="absolute top-[calc(100%+10px)] left-1/2 -translate-x-1/2 w-72 bg-[#0a0a1f] border border-white/10 rounded-xl shadow-xl overflow-hidden z-[260]"
                           role="menu"
                         >
                           <ul className="py-2">
@@ -240,7 +242,7 @@ function DesktopNav() {
                   {profileOpen && (
                     <div
                       role="menu"
-                      className="absolute right-0 top-[calc(100%+12px)] w-80 rounded-2xl border border-white/10 bg-gradient-to-b from-[#1b1630] to-[#0f0b1f] shadow-2xl z-[80]"
+                      className="absolute right-0 top-[calc(100%+12px)] w-80 rounded-2xl border border-white/10 bg-gradient-to-b from-[#1b1630] to-[#0f0b1f] shadow-2xl z-[300]"
                     >
                       <div className="p-4">
                         {/* Header */}
