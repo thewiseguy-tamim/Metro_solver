@@ -43,7 +43,7 @@ const TopBanner = () => {
   const text =
     'Budget Friendly • No. 1 in Europe • On your first order 30% OFF • For all products buy now get the offer • User Friendly • 24/7 Service • ';
   return (
-    <div className="h-8 w-full bg-yellow-400 text-black overflow-hidden border-b border-yellow-300/40 relative z-[150]">
+    <div className="h-8 w-full bg-transparent border-b py-4 relative z-[150]">
       <style
         dangerouslySetInnerHTML={{
           __html: `@keyframes msMarquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }`,
