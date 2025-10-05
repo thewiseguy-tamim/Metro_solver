@@ -1,6 +1,6 @@
-import React from "react";
-import { ServiceCard } from "../../common/Card";
-import { SERVICES } from "./data";
+import React from 'react';
+import { ServiceCard } from '../../common/Card';
+import { SERVICES } from './data';
 
 const SectionHeader = () => (
   <div className="mb-10 text-center">
@@ -15,6 +15,7 @@ const SectionHeader = () => (
 export default function Services() {
   return (
     <section id="services" className="relative py-16 md:py-20 bg-[#0a0a1f]" aria-labelledby="services-heading">
+      {/* Soft background blobs */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute -top-24 -left-24 h-72 w-72 rounded-full blur-3xl opacity-20 bg-gradient-to-br from-purple-600 to-fuchsia-500" />
         <div className="absolute -bottom-24 -right-24 h-72 w-72 rounded-full blur-3xl opacity-20 bg-gradient-to-br from-fuchsia-500 to-purple-600" />
@@ -25,26 +26,16 @@ export default function Services() {
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {SERVICES.map((item) => {
             const Icon = item.icon;
-            const isFeatured = !!item.featured;
             return (
-              <div
+              <ServiceCard
                 key={item.id}
-                className={isFeatured ? "transition-transform duration-300 lg:scale-[1.02]" : "transition-transform duration-300"}
-                style={
-                  isFeatured
-                    ? { boxShadow: "0 0 0 1px rgba(124,58,237,0.35), 0 20px 40px -20px rgba(124,58,237,0.45)", borderRadius: 16 }
-                    : undefined
-                }
-              >
-                <ServiceCard
-                  icon={<Icon className="h-6 w-6 text-purple-400" />}
-                  title={item.title}
-                  description={item.description}
-                  link={item.link}
-                  featured={item.featured}
-                  label={item.label}
-                />
-              </div>
+                icon={<Icon className="h-7 w-7" />}
+                title={item.title}
+                description={item.description}
+                link={item.link}
+                featured={!!item.featured}   // featured stays highlighted; others highlight on hover
+                label={item.label}
+              />
             );
           })}
         </div>

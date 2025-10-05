@@ -7,19 +7,17 @@ import { Portfolio, PortfolioMobile } from "../../components/sections/Portfolio"
 import { WhyChooseUs, WhyChooseUsMobile } from "../../components/sections/WhyChooseUs";
 import { Stats, StatsMobile } from "../../components/sections/Stats";
 import { Testimonials, TestimonialsMobile } from "../../components/sections/Testimonials";
-// If you add later:
-// import { HowItWorks, HowItWorksMobile } from "../../components/sections/HowItWorks";
-// import { Blog, BlogMobile } from "../../components/sections/Blog";
+import { HowItWorks, HowItWorksMobile } from "../../components/sections/HowItWorks";
+import { Blog, BlogMobile } from "../../components/sections/Blog";
 import { Podcast, PodcastMobile } from "../../components/sections/Podcast";
-// import { FAQ, FAQMobile } from "../../components/sections/FAQ";
-// import { Contact, ContactMobile } from "../../components/sections/Contact";
+import { FAQ, FAQMobile } from "../../components/sections/FAQ";
+import { Contact, ContactMobile } from "../../components/sections/Contact";
+import MapSection from "../../components/sections/Map/MapSection";
 
-//
-// ✅ Hook: detect if viewport is mobile
-//
+// Hook: Detect mobile view
 function useIsMobile(breakpoint = 1024) {
   const [isMobile, setIsMobile] = useState(
-    () => (typeof window !== "undefined" ? window.innerWidth < breakpoint : false)
+    typeof window !== "undefined" ? window.innerWidth < breakpoint : false
   );
 
   useEffect(() => {
@@ -31,9 +29,7 @@ function useIsMobile(breakpoint = 1024) {
   return isMobile;
 }
 
-//
-// ✅ Hook: Smooth-scroll for in-page anchors (#target)
-//
+// Hook: Smooth scroll for in-page anchors
 function useSmoothScroll() {
   useEffect(() => {
     const handler = (e) => {
@@ -44,21 +40,11 @@ function useSmoothScroll() {
       if (!href || href === "#") return;
 
       const id = href.slice(1);
-      const el =
-        document.getElementById(id) ||
-        document.querySelector(`[data-section="${id}"]`);
-
-      if (!el) {
-        console.warn(`SmoothScroll: target "${id}" not found in page.`);
-        return; // ✅ prevents crash
-      }
+      const el = document.getElementById(id) || document.querySelector(`[data-section="${id}"]`);
+      if (!el) return;
 
       e.preventDefault();
-      try {
-        el.scrollIntoView({ behavior: "smooth", block: "start" });
-      } catch (err) {
-        console.error("SmoothScroll error:", err);
-      }
+      el.scrollIntoView({ behavior: "smooth", block: "start" });
     };
 
     document.addEventListener("click", handler);
@@ -66,16 +52,13 @@ function useSmoothScroll() {
   }, []);
 }
 
-//
-// ✅ Page: Home
-//
+// Home page
 const Home = () => {
   const isMobile = useIsMobile();
   useSmoothScroll();
 
   return (
     <main className="bg-[#0a0a1f] text-white">
-      {/* Each section has an id for smooth scrolling */}
       <section id="hero" data-section="hero">
         {isMobile ? <HeroMobile /> : <Hero />}
       </section>
@@ -103,11 +86,11 @@ const Home = () => {
           <Testimonials autoplay interval={4500} />
         )}
       </section>
+
       <section id="podcast" data-section="podcast">
         {isMobile ? <PodcastMobile /> : <Podcast />}
       </section>
 
-      {/* Add more later:
       <section id="how-it-works" data-section="how-it-works">
         {isMobile ? <HowItWorksMobile /> : <HowItWorks />}
       </section>
@@ -116,17 +99,14 @@ const Home = () => {
         {isMobile ? <BlogMobile /> : <Blog />}
       </section>
 
-      <section id="podcast" data-section="podcast">
-        {isMobile ? <PodcastMobile /> : <Podcast />}
-      </section>
-
       <section id="faq" data-section="faq">
         {isMobile ? <FAQMobile /> : <FAQ />}
       </section>
 
       <section id="contact" data-section="contact">
+        <MapSection />
         {isMobile ? <ContactMobile /> : <Contact />}
-      </section> */}
+      </section>
     </main>
   );
 };

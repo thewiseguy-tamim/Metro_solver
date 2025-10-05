@@ -1,5 +1,6 @@
 // Navbar.jsx
 import React, { useEffect, useRef, useState } from 'react';
+import { Link } from 'react-router-dom'; // <-- Import Link for internal routing
 import {
   ChevronDown,
   ChevronRight,
@@ -31,8 +32,8 @@ const servicesItems = [
 ];
 
 const navItems = [
-  { key: 'home', label: 'Home', href: '#home' },
-  { key: 'about', label: 'About us', href: '#about' },
+  { key: 'home', label: 'Home', href: '/' }, // React Router link
+  { key: 'about', label: 'About us', href: '/about-us' }, // React Router link
   { key: 'services', label: 'Services', href: '#services', children: servicesItems },
   { key: 'white', label: 'White label', href: '#white-label' },
   { key: 'contact', label: 'Contact us', href: '#contact' },
@@ -60,7 +61,6 @@ const TopBanner = () => {
 
 const BrandMark = () => (
   <div className="flex items-center gap-3">
-    {/* Frame.gif as the brand icon (hex clipped) */}
     <img
       src={logoGif}
       alt="Brand"
@@ -76,7 +76,6 @@ const BrandMark = () => (
   </div>
 );
 
-/* Desktop navbar (pill style) */
 function DesktopNav() {
   const [active, setActive] = useState('home');
   const [servicesOpen, setServicesOpen] = useState(false);
@@ -118,13 +117,12 @@ function DesktopNav() {
   }, []);
 
   return (
-    // sticky + high z-index + isolate to ensure dropdown sits above hero/content
     <div className="hidden lg:block sticky top-0 z-[200] isolate bg-[#0a0a1f]/80 supports-[backdrop-filter]:backdrop-blur border-b border-white/10">
       <div className="max-w-7xl mx-auto px-4">
         <div className="h-20 flex items-center justify-between gap-6">
-          <a href="/" className="shrink-0">
+          <Link to="/" className="shrink-0">
             <BrandMark />
-          </a>
+          </Link>
 
           {/* Center pill nav */}
           <nav className="flex-1 flex justify-center">
@@ -182,6 +180,21 @@ function DesktopNav() {
                   );
                 }
 
+                // Use Link for Home and About Us
+                if (item.key === 'home' || item.key === 'about') {
+                  return (
+                    <Link
+                      key={item.key}
+                      to={item.href}
+                      className={`${base} ${isActive ? activeClasses : inactiveClasses}`}
+                      onClick={() => setActive(item.key)}
+                    >
+                      {item.label}
+                    </Link>
+                  );
+                }
+
+                // Default anchor for in-page links
                 return (
                   <a
                     key={item.key}
@@ -199,7 +212,6 @@ function DesktopNav() {
           {/* Right actions */}
           <div className="flex items-center gap-3">
             {!authed ? (
-              // Sign Up (matches provided style)
               <button
                 type="button"
                 onClick={() => setAuthed(true)}
@@ -212,7 +224,6 @@ function DesktopNav() {
               </button>
             ) : (
               <>
-                {/* Purple pill cart */}
                 <button
                   aria-label="Cart"
                   className="p-2 rounded-full bg-gradient-to-br from-[#6f47ff] to-[#9b4dff] text-white shadow-[0_8px_24px_rgba(111,71,255,0.45)] hover:opacity-95 transition"
@@ -220,7 +231,6 @@ function DesktopNav() {
                   <ShoppingCart className="w-5 h-5" />
                 </button>
 
-                {/* Cat button */}
                 <button
                   aria-label="Cat"
                   className="p-2 rounded-full bg-white/5 hover:bg-white/10 text-purple-300 hover:text-white transition border border-white/10"
@@ -228,7 +238,6 @@ function DesktopNav() {
                   <Cat className="w-5 h-5" />
                 </button>
 
-                {/* Profile avatar + dropdown */}
                 <div className="relative" ref={profileRef}>
                   <button
                     onClick={() => setProfileOpen((s) => !s)}
@@ -245,7 +254,6 @@ function DesktopNav() {
                       className="absolute right-0 top-[calc(100%+12px)] w-80 rounded-2xl border border-white/10 bg-gradient-to-b from-[#1b1630] to-[#0f0b1f] shadow-2xl z-[300]"
                     >
                       <div className="p-4">
-                        {/* Header */}
                         <div className="flex items-center gap-3">
                           <img
                             src={userGif}
@@ -258,7 +266,6 @@ function DesktopNav() {
                           </div>
                         </div>
 
-                        {/* Segmented control */}
                         <div className="mt-3 p-1 rounded-full bg-white/5 border border-white/10 flex gap-1">
                           <button
                             onClick={() => setSegment('website')}
@@ -284,7 +291,6 @@ function DesktopNav() {
                           </button>
                         </div>
 
-                        {/* Menu items */}
                         <ul className="mt-3 space-y-1">
                           <li>
                             <a
