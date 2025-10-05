@@ -1,4 +1,3 @@
-// ContactDesktop.jsx
 import React from 'react';
 import {
   Linkedin,
@@ -34,22 +33,27 @@ export default function ContactDesktop() {
         />
 
         <div className="relative z-10 max-w-7xl mx-auto">
-          <div className="grid grid-cols-[340px_1fr] gap-8">
-            {/* Left card */}
-            <div className="rounded-3xl bg-white/[0.05] border border-white/10 p-8">
+          {/* increased gap between left and right */}
+          <div className="grid grid-cols-[340px_1fr] gap-30 xl:gap-38">
+            {/* Left card with centered content + blurred gradient glow */}
+            <div className="relative rounded-3xl bg-white/[0.04] border border-white/10 p-10 overflow-hidden min-h-[420px] flex flex-col items-center justify-center text-center backdrop-blur-sm">
+              {/* blurred gradient glow layers */}
+              <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
+                <div className="absolute -top-24 -right-24 h-72 w-72 rounded-full bg-[#7c3aed] opacity-40 blur-[110px]" />
+                <div className="absolute -bottom-28 -left-28 h-80 w-80 rounded-full bg-[#3b82f6] opacity-35 blur-[120px]" />
+                <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-96 w-96 rounded-full bg-[#9b4dff] opacity-20 blur-[140px]" />
+              </div>
+
+              {/* logo – hexagon removed */}
               <div className="w-16 h-16 mx-auto mb-6">
                 <img
                   src={frameGif}
                   alt="Brand"
-                  className="w-16 h-16 object-cover shadow-[0_8px_24px_rgba(103,76,255,0.45)]"
-                  style={{
-                    clipPath:
-                      'polygon(25% 6.7%, 75% 6.7%, 100% 50%, 75% 93.3%, 25% 93.3%, 0 50%)',
-                  }}
+                  className="w-16 h-16 object-contain drop-shadow-[0_8px_24px_rgba(103,76,255,0.45)]"
                 />
               </div>
 
-              <h3 className="text-3xl font-extrabold text-white text-center leading-snug">
+              <h3 className="text-3xl font-extrabold text-white leading-snug">
                 Still Have
                 <br />
                 A Questions?
@@ -71,7 +75,6 @@ export default function ContactDesktop() {
                 >
                   <Facebook className="w-4.5 h-4.5" />
                 </a>
-                {/* "G" pill as Google badge */}
                 <span className="p-2.5 rounded-full bg-white/[0.06] border border-white/10 text-white text-xs font-semibold w-9 h-9 grid place-content-center">
                   G
                 </span>

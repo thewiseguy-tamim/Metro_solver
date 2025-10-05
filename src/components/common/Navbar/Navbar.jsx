@@ -1,6 +1,6 @@
 // Navbar.jsx
 import React, { useEffect, useRef, useState } from 'react';
-import { Link } from 'react-router-dom'; // <-- Import Link for internal routing
+import { Link } from 'react-router-dom';
 import {
   ChevronDown,
   ChevronRight,
@@ -15,7 +15,6 @@ import {
   LayoutDashboard,
 } from 'lucide-react';
 
-// Adjust the path to Frame.gif if needed for your structure
 import logoGif from '../../../Materiel/Frame.gif';
 import userGif from '../../../Materiel/demo.jpg';
 
@@ -32,42 +31,73 @@ const servicesItems = [
 ];
 
 const navItems = [
-  { key: 'home', label: 'Home', href: '/' }, // React Router link
-  { key: 'about', label: 'About us', href: '/about-us' }, // React Router link
+  { key: 'home', label: 'Home', href: '/' },
+  { key: 'about', label: 'About us', href: '/about-us' },
   { key: 'services', label: 'Services', href: '#services', children: servicesItems },
   { key: 'white', label: 'White label', href: '#white-label' },
   { key: 'contact', label: 'Contact us', href: '#contact' },
 ];
 
+/* Top Banner: bigger, spaced items, 30% OFF capsule (orange gradient) */
 const TopBanner = () => {
-  const text =
-    'Budget Friendly • No. 1 in Europe • On your first order 30% OFF • For all products buy now get the offer • User Friendly • 24/7 Service • ';
+  const BannerRow = () => (
+    <div className="flex items-center gap-10 sm:gap-16 px-4">
+      <span className="text-xs sm:text-sm text-white/90">Budget Friendly</span>
+      <span className="text-white/30">•</span>
+
+      <span className="text-xs sm:text-sm text-white/90">No. 1 in Europe</span>
+      <span className="text-white/30">•</span>
+
+      <div className="flex items-center gap-3">
+        <span className="text-xs sm:text-sm text-white/90">On your first order</span>
+        <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-[11px] sm:text-xs font-semibold text-white bg-gradient-to-r from-orange-400 via-orange-500 to-amber-500 shadow-[0_0_12px_rgba(255,165,0,0.35)]">
+          30% OFF
+        </span>
+      </div>
+      <span className="text-white/30">•</span>
+
+      <span className="text-xs sm:text-sm text-white/90">For all products buy now get the offer</span>
+      <span className="text-white/30">•</span>
+
+      <span className="text-xs sm:text-sm text-white/90">User Friendly</span>
+      <span className="text-white/30">•</span>
+
+      <span className="text-xs sm:text-sm text-white/90">24/7 Service</span>
+    </div>
+  );
+
   return (
-    <div className="h-8 w-full bg-transparent border-b py-4 relative z-[150]">
+    <div className="h-12 sm:h-14 w-full bg-transparent border-b border-white/10 relative z-[150] overflow-hidden">
       <style
         dangerouslySetInnerHTML={{
-          __html: `@keyframes msMarquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }`,
+          __html: `
+            @keyframes msMarquee {
+              0% { transform: translateX(0); }
+              100% { transform: translateX(-50%); }
+            }
+          `,
         }}
       />
       <div
         className="absolute inset-0 flex items-center whitespace-nowrap will-change-transform"
         style={{ animation: 'msMarquee 22s linear infinite' }}
       >
-        <span className="px-2 text-xs sm:text-sm">{text.repeat(4)}</span>
+        <div className="flex">
+          <BannerRow />
+          <BannerRow />
+        </div>
       </div>
     </div>
   );
 };
 
+/* BrandMark: full logo, bigger, no hexagon clip */
 const BrandMark = () => (
   <div className="flex items-center gap-3">
     <img
       src={logoGif}
       alt="Brand"
-      className="w-9 h-9 object-cover shadow-[0_8px_24px_rgba(103,76,255,0.45)]"
-      style={{
-        clipPath: 'polygon(25% 6.7%, 75% 6.7%, 100% 50%, 75% 93.3%, 25% 93.3%, 0 50%)',
-      }}
+      className="w-14 h-14 sm:w-16 sm:h-16 object-contain drop-shadow-[0_8px_24px_rgba(103,76,255,0.45)]"
     />
     <div className="leading-tight">
       <div className="font-extrabold tracking-wide">METRO SOLVER</div>
@@ -117,9 +147,10 @@ function DesktopNav() {
   }, []);
 
   return (
-    <div className="hidden lg:block sticky top-0 z-[200] isolate bg-[#0a0a1f]/80 supports-[backdrop-filter]:backdrop-blur border-b border-white/10">
+    // Removed border-b to avoid a visible line/gap above the hero
+    <div className="hidden lg:block sticky top-0 z-[200] isolate bg-[#0a0a1f]/80 supports-[backdrop-filter]:backdrop-blur">
       <div className="max-w-7xl mx-auto px-4">
-        <div className="h-20 flex items-center justify-between gap-6">
+        <div className="h-20 mb-[-100px] flex items-center justify-between gap-6">
           <Link to="/" className="shrink-0">
             <BrandMark />
           </Link>
@@ -180,7 +211,6 @@ function DesktopNav() {
                   );
                 }
 
-                // Use Link for Home and About Us
                 if (item.key === 'home' || item.key === 'about') {
                   return (
                     <Link
@@ -194,7 +224,6 @@ function DesktopNav() {
                   );
                 }
 
-                // Default anchor for in-page links
                 return (
                   <a
                     key={item.key}

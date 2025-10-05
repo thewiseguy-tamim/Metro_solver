@@ -1,7 +1,7 @@
+// Hero.jsx
 import React from 'react';
 
-// Import GIFs (Vite will resolve to URLs)
-// FIX: go up 3 levels to reach src
+// Import GIFs
 import bgGif from '../../../Materiel/Comp1_4.gif';
 import frame3Gif from '../../../Materiel/Frame3.gif';
 
@@ -16,12 +16,13 @@ const SparkleIcon = ({ className = 'w-5 h-5' }) => (
 const Hero = () => {
   return (
     <section
-      className="relative overflow-hidden text-white bg-no-repeat bg-cover bg-center min-h-screen"
+      className="relative overflow-hidden text-white bg-no-repeat bg-cover bg-center min-h-screen mt-0 pt-0"
       style={{ backgroundImage: `url(${bgGif})` }}
     >
-      <div className="relative mx-auto max-w-7xl px-6 lg:px-8 py-12 lg:py-20">
-        <div className="max-w-2xl">
-          <h1 className="text-[40px] leading-tight font-extrabold sm:text-[54px] xl:text-[64px]">
+      {/* Remove top gap: avoid heading margin collapse */}
+      <div className="relative mx-auto max-w-7xl px-6 lg:px-8 pt-0 pb-12 lg:pb-20">
+        <div className="max-w-2xl pt-0">
+          <h1 className="mt-45 text-[40px] leading-tight font-extrabold sm:text-[54px] xl:text-[64px]">
             <span className="block">Expert to</span>
             <span className="block">Digitalise Your</span>
             <span className="bg-gradient-to-r from-purple-500 via-purple-400 to-fuchsia-400 bg-clip-text text-transparent">

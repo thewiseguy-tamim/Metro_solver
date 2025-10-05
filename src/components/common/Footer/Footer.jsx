@@ -1,6 +1,7 @@
 import React from "react";
-import { Mail, MapPin, Phone, Globe2 } from "lucide-react";
+import { Mail, MapPin, Phone } from "lucide-react";
 import PartnersMarquee from "./PartnersMarquee";
+import logo from "../../../Materiel/Frame.gif";
 
 const companyLinks = [
   { label: "Home", href: "#" },
@@ -61,12 +62,17 @@ export default function FooterDesktop() {
         <div className="pt-14">
           <div className="relative rounded-[28px] border border-white/10 bg-gradient-to-br from-[#15183b] via-[#131733] to-[#121428] p-10 shadow-[0_40px_120px_rgba(124,58,237,0.25)]">
             <div className="flex flex-col items-start gap-6 md:flex-row md:items-center md:justify-between">
-              {/* brand + copy */}
-              <div className="flex items-center gap-5">
-                <div
-                  className="h-12 w-12 shrink-0 bg-gradient-to-br from-purple-500 to-purple-700"
-                  style={{ clipPath: "polygon(25% 6.7%, 75% 6.7%, 100% 50%, 75% 93.3%, 25% 93.3%, 0 50%)" }}
-                  aria-hidden
+              {/* brand + copy (Frame.gif as logo) */}
+              <a href="/" className="flex items-center gap-5" aria-label="Metro Solver home">
+                <img
+                  src={logo}
+                  alt="Metro Solver logo"
+                  width="48"
+                  height="48"
+                  className="h-12 w-auto shrink-0"
+                  loading="lazy"
+                  decoding="async"
+                  draggable="false"
                 />
                 <div>
                   <div className="text-xl font-extrabold text-white">METRO SOLVER</div>
@@ -74,7 +80,7 @@ export default function FooterDesktop() {
                     your it partner
                   </div>
                 </div>
-              </div>
+              </a>
 
               <div className="max-w-2xl">
                 <h3 className="text-2xl font-bold text-white">Subscribe to Our Newsletter</h3>
@@ -160,10 +166,12 @@ export default function FooterDesktop() {
 
           {/* Link columns */}
           <div className="col-span-12 md:col-span-7 grid grid-cols-2 gap-8 lg:grid-cols-4">
-            {[{ title: "Company", list: companyLinks },
+            {[
+              { title: "Company", list: companyLinks },
               { title: "About Us", list: aboutLinks },
               { title: "Support", list: supportLinks },
-              { title: "Services", list: servicesLinks }].map((col) => (
+              { title: "Services", list: servicesLinks },
+            ].map((col) => (
               <div key={col.title}>
                 <h5 className="mb-4 font-semibold text-white">{col.title}</h5>
                 <ul className="space-y-2 text-sm">
@@ -189,7 +197,7 @@ export default function FooterDesktop() {
         {/* Bottom row */}
         <div className="mt-10 border-t border-white/10 py-6 text-xs text-gray-500">
           <div className="flex items-center justify-between">
-            <span>© Metro Solver. All Rights Reserved 2024</span>
+            <span>© Metro Solver. All Rights Reserved 2025</span>
             <span>Metro Solver Ltd incorporated in England & Wales Registration No:15792819</span>
           </div>
         </div>
