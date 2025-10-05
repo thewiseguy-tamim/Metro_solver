@@ -212,7 +212,7 @@ function MobileBottomTabs() {
           {/* Floating active orb (slides on hover/click) */}
           <span
             aria-hidden
-            className="absolute -top-5 z-10 w-12 h-12 rounded-full bg-gradient-to-br from-[#6f47ff] to-[#9b4dff] shadow-[0_8px_28px_rgba(111,71,255,0.55)] border border-white/10 transition-[left] duration-300 ease-out"
+            className="absolute top-1 z-10 w-12 h-12 rounded-full bg-gradient-to-br from-[#6f47ff] to-[#9b4dff] shadow-[0_8px_28px_rgba(111,71,255,0.55)] border border-white/10 transition-[left] duration-300 ease-out"
             style={{ left: orbLeft }}
           />
 

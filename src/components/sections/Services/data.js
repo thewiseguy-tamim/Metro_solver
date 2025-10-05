@@ -12,12 +12,12 @@ export const SERVICES = [
   },
   {
     id: 'svc-2',
-    title: 'Digital Marketing',
+    title: 'SEO Marketing',
     description:
-      'We are constantly growing or learning and improving. Enter your personal real estate sanctuary, where finding the ideal home is effortless and comfortable with our assistance.',
+      'We are growing or learning and improving. Enter your personal real estate sanctuary, where finding the ideal home is effortless and comfortable with our assistance.',
     icon: Megaphone,
     link: '#',
-    featured: true,      // shows the purple gradient + white outline
+    featured: false,      // shows the purple gradient + white outline
     label: '',
   },
   {

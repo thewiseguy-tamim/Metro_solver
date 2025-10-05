@@ -12,7 +12,7 @@ const HeroMobile = () => {
       className="relative overflow-hidden text-white bg-no-repeat bg-cover bg-center min-h-screen"
       style={{ backgroundImage: `url(${bgGif})` }}
     >
-      <div className="mx-auto max-w-2xl px-5 py-12">
+      <div className="mx-auto mt-[120px] max-w-2xl px-5 py-12">
         <h1 className="text-center text-4xl font-extrabold leading-tight text-white">
           Expert to Digitalise Your{' '}
           <span className="bg-gradient-to-r from-purple-500 via-purple-600 to-purple-400 bg-clip-text text-transparent">
@@ -36,7 +36,7 @@ const HeroMobile = () => {
         </div>
 
         {/* Partner marquee (kept as-is) */}
-        <div className="relative mt-8 select-none overflow-hidden border-t border-white/5 pt-5">
+        <div className="relative mt-25 select-none overflow-hidden border-t border-white/5 pt-5">
           <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-[#0a0a1f]/0 via-transparent to-[#0a0a1f]/0" />
           <div className="flex gap-4 whitespace-nowrap will-change-transform animate-[hero-marquee_40s_linear_infinite]">
             {logos.map((l, i) => (
