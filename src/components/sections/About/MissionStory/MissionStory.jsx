@@ -88,7 +88,7 @@ const ImageCard = ({ src, alt = 'People working' }) => {
 const MissionStory = ({
   variant = 'desktop',
   imgTopLeft = 'https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=1200&q=80',
-  imgBottomRight = 'https://images.unsplash.com/photo-1529336953121-ad5a6d5a65b4?auto=format&fit=crop&w=1200&q=80',
+  imgBottomRight = 'https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=1200&q=80',
   onReadMore = () => {}
 }) => {
   const isMobile = variant === 'mobile';

@@ -232,7 +232,7 @@ export const AGENTS = [
     name: 'Zainab Gul',
     role: 'HR & Ops Lead',
     categories: ['leadership'],
-    photo: 'https://images.unsplash.com/photo-1531123414780-f742b6bdf133?auto=format&fit=crop&w=1080&q=80',
+    photo: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=1080&q=80',
   },
   {
     id: 8,
@@ -260,7 +260,7 @@ export const AGENTS = [
     name: 'Hiba Javed',
     role: 'Content Lead',
     categories: ['creative', 'growth'],
-    photo: 'https://images.unsplash.com/photo-1520975922203-b1aab2a654ac?auto=format&fit=crop&w=1080&q=80',
+    photo: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=1080&q=80',
   },
   {
     id: 12,
