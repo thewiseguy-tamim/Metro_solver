@@ -75,7 +75,21 @@ const Home = () => {
         {isMobile ? <WhyChooseUsMobile /> : <WhyChooseUs />}
       </section>
 
-      <section id="stats" data-section="stats">
+     
+
+      
+
+      <section id="podcast" data-section="podcast">
+        {isMobile ? <PodcastMobile /> : <Podcast />}
+      </section>
+
+      
+
+      <section id="how-it-works" data-section="how-it-works">
+        {isMobile ? <HowItWorksMobile /> : <HowItWorks />}
+      </section>
+
+       <section id="stats" data-section="stats">
         {isMobile ? <StatsMobile /> : <Stats />}
       </section>
 
@@ -87,26 +101,21 @@ const Home = () => {
         )}
       </section>
 
-      <section id="podcast" data-section="podcast">
-        {isMobile ? <PodcastMobile /> : <Podcast />}
-      </section>
-
-      <section id="how-it-works" data-section="how-it-works">
-        {isMobile ? <HowItWorksMobile /> : <HowItWorks />}
-      </section>
-
       <section id="blog" data-section="blog">
         {isMobile ? <BlogMobile /> : <Blog />}
       </section>
 
-      <section id="faq" data-section="faq">
-        {isMobile ? <FAQMobile /> : <FAQ />}
-      </section>
-
       <section id="contact" data-section="contact">
-        <MapSection />
+        
         {isMobile ? <ContactMobile /> : <Contact />}
       </section>
+
+      <section id="faq" data-section="faq">
+        {isMobile ? <FAQMobile /> : <FAQ />}
+        <MapSection />
+      </section>
+
+      
     </main>
   );
 };
