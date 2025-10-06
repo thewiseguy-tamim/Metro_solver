@@ -3,6 +3,8 @@ import { AboutIntro, AboutIntroMobile } from '../../components/sections/About/Ab
 import { MissionStory, MissionStoryMobile } from '../../components/sections/About/MissionStory';
 import { MeetOurAgents, MeetOurAgentsMobile } from '../../components/sections/Agents/MeetOurAgents';
 import { Stats, StatsMobile } from '../../components/sections/Stats';
+import { ContactMobile, Contact } from '../../components/sections/Contact';
+
 
 function useIsMobile(bp = 768) {
   const [isMobile, setIsMobile] = useState(
@@ -26,6 +28,7 @@ const AboutUs = () => {
       {isMobile ? <MissionStoryMobile /> : <MissionStory />}
       
       {isMobile ? <MeetOurAgentsMobile /> : <MeetOurAgents />}
+      {isMobile ? <ContactMobile /> : <Contact />}
     </>
   );
 };
